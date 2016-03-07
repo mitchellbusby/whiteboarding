@@ -1,7 +1,7 @@
 {
   "generator-react-webpack": {
     "appName": "whiteboarding",
-    "style": "sass",
+    "style": "scss",
     "postcss": true
   }
 }

@@ -8,5 +8,8 @@
  */
 import { combineReducers } from 'redux';
 /* Populated by react-webpack-redux:reducer */
-const reducers = {};
+const reducers = {
+  whiteboarditem: require('../reducers/whiteboarding/whiteboarditem.js'),
+  items: require('../reducers/items.js')
+};
 module.exports = combineReducers(reducers);

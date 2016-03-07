@@ -1,0 +1,16 @@
+.whiteboarditem-component {
+  width: 400px;
+  height: 300px;
+  background-color: white;
+  border: 1px solid #dddddd;
+  box-shadow: 5px 5px 4px 0px rgba(0, 0, 0, 0.48);
+  margin-bottom: 1em;
+  position: relative;
+  .status-bar {
+    $status-bar-height: 15px;
+    position: absolute;
+    height: $status-bar-height;
+    line-height: $status-bar-height;
+    bottom: 0px;
+  }
+}
