@@ -11,11 +11,12 @@ import React, {
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Main from '../components/Main';
+import { CreateWhiteboardItemComplete } from '../actions/whiteboarding/whiteboarditem';
 /* Populated by react-webpack-redux:reducer */
 class App extends Component {
   render() {
     const {actions, whiteboarditem, items} = this.props;
-    return <Main actions={actions} WhiteboardItems={whiteboarditem} items={items}/>;
+    return <Main Actions={actions} WhiteboardItems={whiteboarditem} items={items}/>;
   }
 }
 /* Populated by react-webpack-redux:reducer
@@ -38,7 +39,7 @@ function mapStateToProps(state) {
 }
 function mapDispatchToProps(dispatch) {
   /* Populated by react-webpack-redux:action */
-  const actions = {};
+  const actions = { CreateWhiteboardItemComplete: CreateWhiteboardItemComplete };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;
 }

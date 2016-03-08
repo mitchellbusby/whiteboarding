@@ -10,17 +10,16 @@ import InitNewWhiteboardItemComponent from './whiteboarding/InitNewWhiteboardIte
 
 class AppComponent extends React.Component {
   render() {
-    const { WhiteboardItems } = this.props;
+    const { WhiteboardItems, Actions } = this.props;
     return (
       <div className="index">
-        <div className="notice">Please edit <code>src/components/Main.js</code> to get started!</div>
         {
           WhiteboardItems.items.map(WhiteboardItem =>
             <WhiteboarditemComponent key={WhiteboardItem.id} description={ WhiteboardItem.description }
             upvotes={WhiteboardItem.upvotes} downvotes={WhiteboardItem.downvotes}/>
           )
         }
-        <InitNewWhiteboardItemComponent />
+        <InitNewWhiteboardItemComponent onCreate={ () => Actions.CreateWhiteboardItemComplete() } />
       </div>
     );
   }
@@ -30,7 +29,8 @@ AppComponent.defaultProps = {
 };
 
 AppComponent.propTypes = {
-  WhiteboardItems: PropTypes.object.isRequired
+  WhiteboardItems: PropTypes.object.isRequired,
+  Actions: PropTypes.object.isRequired
 };
 
 export default AppComponent;

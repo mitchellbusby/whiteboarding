@@ -1,3 +1,5 @@
+import { CREATE_WHITEBOARD_ITEM_COMPLETE } from '../../action-types/whiteboarding/constants';
+
 /* Define your initial state here.
  *
  * If you change the type from object to something else, do not forget to update
@@ -28,6 +30,16 @@ module.exports = function(state = initialState, action) {
       return nextState;
     } break;
     */
+  case [CREATE_WHITEBOARD_ITEM_COMPLETE]: {
+    let nextState = Object.assign({},
+      state,
+      {
+        items: state.items.concat(action.item),
+        addingAnItem: false
+      }
+    );
+    return nextState;
+  }
   default: {
     /* Return original state if no actions were consumed. */
     return state;

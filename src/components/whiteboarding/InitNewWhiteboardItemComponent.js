@@ -11,7 +11,7 @@ class InitNewWhiteboardItemComponent extends React.Component {
     super(props);
     this.state = {
       isEditing: false,
-      description: ''
+      description: 'Description...'
     };
   }
 
@@ -30,7 +30,7 @@ class InitNewWhiteboardItemComponent extends React.Component {
         </div>
         <form className="creation-form">
           <div className="creation-text">
-            <textarea value={'Description...'} onChange={() => this.handleChangeDescription()}>
+            <textarea value={this.state.description} onChange={(ev) => this.handleChangeDescription(ev)}>
             </textarea>
           </div>
           <div className='creation-control'>
@@ -50,11 +50,19 @@ class InitNewWhiteboardItemComponent extends React.Component {
     this.setState({isEditing: false});
   }
   handleCreateClick() {
-    let item = {};
-    this.props.OnCreate(item);
+    let item = {
+      id: Math.floor((Math.random() * 100) + 1),
+      description: this.state.description,
+      upvotes: [],
+      downvotes: [],
+      dateAdded: Date(),
+      minRatio: [],
+      maxRatio: []
+    };
+    this.props.onCreate(item);
   }
   handleChangeDescription(ev) {
-    this.setState({description:ev.target.value});
+    this.setState({description: ev.target.value});
   }
 }
 
@@ -62,14 +70,11 @@ InitNewWhiteboardItemComponent.displayName = 'WhiteboardingInitNewWhiteboardItem
 
 // Uncomment properties you need
 InitNewWhiteboardItemComponent.propTypes = {
-  OnEdit: PropTypes.func,
-  OnCreate: PropTypes.func,
-  OnCancel: PropTypes.func
+  onEdit: PropTypes.func,
+  onCreate: PropTypes.func,
+  onCancel: PropTypes.func
 };
 InitNewWhiteboardItemComponent.defaultProps = {
-  OnCreate: (itemToCreate) => {
-    console.log(itemToCreate);
-  }
 };
 
 export default InitNewWhiteboardItemComponent;
