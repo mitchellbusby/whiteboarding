@@ -6,7 +6,7 @@ import React, { PropTypes } from 'react';
 // Components
 
 import WhiteboarditemComponent from './whiteboarding/WhiteboarditemComponent';
-
+import InitNewWhiteboardItemComponent from './whiteboarding/InitNewWhiteboardItemComponent';
 
 class AppComponent extends React.Component {
   render() {
@@ -20,6 +20,7 @@ class AppComponent extends React.Component {
             upvotes={WhiteboardItem.upvotes} downvotes={WhiteboardItem.downvotes}/>
           )
         }
+        <InitNewWhiteboardItemComponent />
       </div>
     );
   }

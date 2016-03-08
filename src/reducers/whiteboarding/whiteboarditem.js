@@ -7,14 +7,14 @@ const initialState = {
   items: [
     {
       id: 0,
-      description: "Hello world",
+      description: 'Hello world',
       upvotes: [{id:0}],
       downvotes: [{id:1}],
       dateAdded: Date(),
       minRatio: [300, 300],
-      maxRatio: [300, 300],
+      maxRatio: [300, 300]
     }
-  ],
+  ]
 };
 
 module.exports = function(state = initialState, action) {

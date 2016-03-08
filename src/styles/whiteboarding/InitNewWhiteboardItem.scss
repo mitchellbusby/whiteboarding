@@ -1,0 +1,42 @@
+.initnewwhiteboarditem-component {
+  .creation-form {
+    display: none;
+  }
+  .plus {
+    $plus-circle-radius: 190px;
+    width: $plus-circle-radius;
+    height: $plus-circle-radius;
+    line-height: $plus-circle-radius * 0.9;
+    border-radius: $plus-circle-radius;
+    margin: 30px auto;
+    font-size: 10em;
+    border: 1px solid grey;
+    color: grey;
+    text-align: center;
+    opacity: 0.7;
+    $hover-transition-time: 0.7s;
+    $radius-transition-time: 0.3s;
+    transition: border $hover-transition-time, opacity $hover-transition-time, color $hover-transition-time, height $radius-transition-time, width $radius-transition-time, line-height 0.2s;
+    cursor: pointer;
+    &:hover {
+      border: 1px solid black;
+      /*width: 200px;
+      height: 200px;
+      border-radius: 200px;
+      line-height: 200px * 0.9;*/
+      opacity: 1;
+      color: black;
+    }
+  }
+
+
+  &.editing {
+    .plus {
+      display: none;
+      cursor: inherit;
+    }
+    .creation-form {
+      display: block;
+    }
+  }
+}
