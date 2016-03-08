@@ -59,7 +59,8 @@ class InitNewWhiteboardItemComponent extends React.Component {
       minRatio: [],
       maxRatio: []
     };
-    this.props.onCreate(item);
+    console.log(item);
+    this.props.onCreate(item, false);
   }
   handleChangeDescription(ev) {
     this.setState({description: ev.target.value});

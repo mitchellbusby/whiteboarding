@@ -19,7 +19,7 @@ class AppComponent extends React.Component {
             upvotes={WhiteboardItem.upvotes} downvotes={WhiteboardItem.downvotes}/>
           )
         }
-        <InitNewWhiteboardItemComponent onCreate={ () => Actions.CreateWhiteboardItemComplete() } />
+        <InitNewWhiteboardItemComponent onCreate={ Actions.CreateWhiteboardItemComplete } />
       </div>
     );
   }
