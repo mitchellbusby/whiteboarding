@@ -4,6 +4,8 @@ import React, { PropTypes } from 'react';
 
 import classNames from 'classnames';
 
+import { GenerateRandomInteger } from '../../utils/numbers';
+
 require('styles/whiteboarding/InitNewWhiteboardItem.scss');
 
 class InitNewWhiteboardItemComponent extends React.Component {
@@ -11,7 +13,7 @@ class InitNewWhiteboardItemComponent extends React.Component {
     super(props);
     this.state = {
       isEditing: false,
-      description: 'Description...'
+      description: '',
     };
   }
 
@@ -30,7 +32,7 @@ class InitNewWhiteboardItemComponent extends React.Component {
         </div>
         <form className="creation-form">
           <div className="creation-text">
-            <textarea value={this.state.description} onChange={(ev) => this.handleChangeDescription(ev)}>
+            <textarea placeholder={'Description...'} value={this.state.description} onChange={(ev) => this.handleChangeDescription(ev)}>
             </textarea>
           </div>
           <div className='creation-control'>
@@ -51,7 +53,7 @@ class InitNewWhiteboardItemComponent extends React.Component {
   }
   handleCreateClick() {
     let item = {
-      id: Math.floor((Math.random() * 100) + 1),
+      id: GenerateRandomInteger(100),
       description: this.state.description,
       upvotes: [],
       downvotes: [],
@@ -59,7 +61,6 @@ class InitNewWhiteboardItemComponent extends React.Component {
       minRatio: [],
       maxRatio: []
     };
-    console.log(item);
     this.props.onCreate(item, false);
   }
   handleChangeDescription(ev) {

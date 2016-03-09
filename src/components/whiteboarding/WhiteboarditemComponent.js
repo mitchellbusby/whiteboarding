@@ -7,7 +7,7 @@ require('styles/whiteboarding/Whiteboarditem.scss');
 
 class WhiteboarditemComponent extends React.Component {
   render() {
-    const { description, upvotes, downvotes, key } = this.props;
+    const { description, upvotes, downvotes, upvote, downvote, key } = this.props;
     return (
       <div className="whiteboarditem-component whiteboard-card">
         { description }

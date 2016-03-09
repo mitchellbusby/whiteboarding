@@ -38,7 +38,6 @@ module.exports = function(state = initialState, action) {
         addingAnItem: false
       }
     );
-    console.log(nextState);
     return nextState;
   }
   default: {
