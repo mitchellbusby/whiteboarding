@@ -12,9 +12,12 @@ import Main from 'components/Main';
 
 describe('MainComponent', () => {
   let MainComponent;
-
+  let WhiteboardItems;
+  let Actions;
   beforeEach(() => {
-    MainComponent = createComponent(Main);
+    WhiteboardItems = { items: [] };
+    Actions = { };
+    MainComponent = createComponent(Main, { WhiteboardItems: WhiteboardItems, Actions: Actions });
   });
 
   it('should have its component name as default className', () => {

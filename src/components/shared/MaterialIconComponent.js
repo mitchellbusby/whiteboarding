@@ -8,7 +8,7 @@ class MaterialIconComponent extends React.Component {
   render() {
     const { name } = this.props;
     return (
-      <i className="material-icons">
+      <i className="materialicon-component material-icons">
         { name }
       </i>
     );

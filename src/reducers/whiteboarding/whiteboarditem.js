@@ -30,7 +30,7 @@ module.exports = function(state = initialState, action) {
       return nextState;
     } break;
     */
-  case [CREATE_WHITEBOARD_ITEM_COMPLETE]: {
+  case CREATE_WHITEBOARD_ITEM_COMPLETE: {
     let nextState = Object.assign({},
       state,
       {
@@ -38,6 +38,7 @@ module.exports = function(state = initialState, action) {
         addingAnItem: false
       }
     );
+    console.log(nextState);
     return nextState;
   }
   default: {
