@@ -1,5 +1,5 @@
 @import '../shared/placeholder-polyfill';
-
+@import './FlipCard';
 .initnewwhiteboarditem-component {
   .creation-form {
     display: none;
@@ -17,7 +17,6 @@
       @include placeholder-polyfill {
         color: grey;
       }
-
     }
   }
   .plus {

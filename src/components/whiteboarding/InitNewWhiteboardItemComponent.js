@@ -20,6 +20,7 @@ class InitNewWhiteboardItemComponent extends React.Component {
   render() {
     const stateClassNames = classNames('initnewwhiteboarditem-component',
       'whiteboard-card',
+      'flip-container',
       {
         'editing': this.state.isEditing
       }
@@ -27,20 +28,22 @@ class InitNewWhiteboardItemComponent extends React.Component {
 
     return (
       <div className={stateClassNames}>
-        <div className="plus to-edit-tile" onClick={() => this.onEditingClick()}>
-          +
+        <div className="flipper">
+          <div className="plus to-edit-tile front" onClick={() => this.onEditingClick()}>
+            +
+          </div>
+          <form className="creation-form back">
+            <div className="creation-text">
+              <textarea placeholder={'Description...'} value={this.state.description} onChange={(ev) => this.handleChangeDescription(ev)}>
+              </textarea>
+            </div>
+            <div className='creation-control'>
+              <button type='button' className='pure-button pure-button-primary' onClick={()=> this.handleCreateClick()}>Create</button>
+              &nbsp;
+              <button type='button' className='pure-button' onClick={()=> this.onCancelClick()}>Cancel</button>
+            </div>
+          </form>
         </div>
-        <form className="creation-form">
-          <div className="creation-text">
-            <textarea placeholder={'Description...'} value={this.state.description} onChange={(ev) => this.handleChangeDescription(ev)}>
-            </textarea>
-          </div>
-          <div className='creation-control'>
-            <button type='button' className='pure-button pure-button-primary' onClick={()=> this.handleCreateClick()}>Create</button>
-            &nbsp;
-            <button type='button' className='pure-button' onClick={()=> this.onCancelClick()}>Cancel</button>
-          </div>
-        </form>
       </div>
     );
   }
