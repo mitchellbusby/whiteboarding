@@ -2,6 +2,7 @@ require('normalize.css');
 require('styles/App.css');
 
 import React, { PropTypes } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 // Components
 
@@ -13,12 +14,14 @@ class AppComponent extends React.Component {
     const { WhiteboardItems, Actions } = this.props;
     return (
       <div className="index">
-        {
-          WhiteboardItems.items.map(WhiteboardItem =>
-            <WhiteboarditemComponent key={WhiteboardItem.id} description={ WhiteboardItem.description }
-            upvotes={WhiteboardItem.upvotes} downvotes={WhiteboardItem.downvotes}/>
-          )
-        }
+        <ReactCSSTransitionGroup transitionName="whiteboard-item-animation">
+          {
+            WhiteboardItems.items.map(WhiteboardItem =>
+              <WhiteboarditemComponent key={WhiteboardItem.id} description={ WhiteboardItem.description }
+              upvotes={WhiteboardItem.upvotes} downvotes={WhiteboardItem.downvotes}/>
+            )
+          }
+        </ReactCSSTransitionGroup>
         <InitNewWhiteboardItemComponent onCreate={ Actions.CreateWhiteboardItemComplete } />
       </div>
     );
