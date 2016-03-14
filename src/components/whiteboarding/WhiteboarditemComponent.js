@@ -18,6 +18,14 @@ class WhiteboarditemComponent extends React.Component {
           <MaterialIcon name={'trending_down'} onClick={() => downvote(key)}/>
           { downvotes.length }
         </div>
+        <div className="modifiers-bar">
+          <span className="modifier">
+            <MaterialIcon name={"delete"} />
+          </span>
+          <span className="modifier">
+            <MaterialIcon name={"refresh"} />
+          </span>
+        </div>
       </div>
     );
   }
@@ -32,6 +40,7 @@ WhiteboarditemComponent.propTypes = {
   downvotes: PropTypes.array,
   upvote: PropTypes.func,
   downvote: PropTypes.func,
+  onDelete: PropTypes.func,
   key: PropTypes.number
 };
 WhiteboarditemComponent.defaultProps = {

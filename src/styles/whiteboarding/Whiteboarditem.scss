@@ -1,10 +1,43 @@
 .whiteboarditem-component {
+  $whiteboard-absolute-padding: 0.5em;
   .status-bar {
     $status-bar-height: 1;
     font-size: 24px;
     position: absolute;
     height: $status-bar-height;
     line-height: $status-bar-height;
-    bottom: 0.5em;
+    bottom: $whiteboard-absolute-padding;
+  }
+  .modifiers-bar {
+    position: absolute;
+    opacity: 0;
+    right: $whiteboard-absolute-padding;
+    top: $whiteboard-absolute-padding;
+    transition: opacity 0.1s ease-in;
+  }
+  &:hover .modifiers-bar {
+    opacity: 1;
+  }
+  .modifier {
+    display: inline-block;
+    text-align: center;
+    $modifier-button-radius: 1.8em;
+    line-height: $modifier-button-radius;
+    height: $modifier-button-radius;
+    width: $modifier-button-radius;
+    border-radius: 1em;
+    margin: 0.3em;
+    padding-top: 2px;
+    //border: 1px solid light-grey;
+    //color: #36454f;
+    //box-shadow: 1px 1px 3px grey;
+    //background-color: #EFEFEF;
+    // material colours
+    background-color: #00BBD3;
+    color: white;
+
+
+    // sketch output
+    box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.12), 0px 7px 7px 0px rgba(0,0,0,0.24);
   }
 }
