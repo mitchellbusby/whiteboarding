@@ -14,11 +14,12 @@ class AppComponent extends React.Component {
     const { WhiteboardItems, Actions } = this.props;
     return (
       <div className="index">
-        <ReactCSSTransitionGroup transitionName="whiteboard-item-animation">
+        <ReactCSSTransitionGroup transitionName="whiteboard-item-animation" transitionEnterTimeout={1000} transitionLeaveTimeout={1000}>
           {
             WhiteboardItems.items.map(WhiteboardItem =>
-              <WhiteboarditemComponent key={WhiteboardItem.id} description={ WhiteboardItem.description }
-              upvotes={WhiteboardItem.upvotes} downvotes={WhiteboardItem.downvotes}/>
+              <WhiteboarditemComponent key={WhiteboardItem.id} id={WhiteboardItem.id} description={ WhiteboardItem.description }
+              upvotes={WhiteboardItem.upvotes} downvotes={WhiteboardItem.downvotes}
+              onDelete={ Actions.DeleteWhiteboardItemComplete } />
             )
           }
         </ReactCSSTransitionGroup>

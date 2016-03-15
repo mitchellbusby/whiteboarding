@@ -1,4 +1,4 @@
-import { CREATE_WHITEBOARD_ITEM_COMPLETE } from '../../action-types/whiteboarding/constants';
+import { CREATE_WHITEBOARD_ITEM_COMPLETE, DELETE_WHITEBOARD_ITEM_COMPLETE } from '../../action-types/whiteboarding/constants';
 
 /* Define your initial state here.
  *
@@ -36,6 +36,15 @@ module.exports = function(state = initialState, action) {
       {
         items: state.items.concat(action.item),
         addingAnItem: false
+      }
+    );
+    return nextState;
+  }
+  case DELETE_WHITEBOARD_ITEM_COMPLETE: {
+    let nextState = Object.assign({},
+      state,
+      {
+        items: state.items.filter(item => item.id !== action.itemId),
       }
     );
     return nextState;

@@ -19,14 +19,15 @@ $whiteboard-item-width: 400px;
 }
 
 .whiteboard-item-animation-leave {
-  width: $whiteboard-item-width !important;
-}
-
-.whiteboard-item-animation-leave.whiteboard-item-animation-leave-active {
-  width: 0px;
-    -webkit-transition: width 500ms ease-in;
+//  width: $whiteboard-item-width !important;
+      -webkit-transition: width 500ms ease-in;
      -moz-transition: width 500ms ease-in;
       -ms-transition: width 500ms ease-in;
        -o-transition: width 500ms ease-in;
           transition: width 500ms ease-in;
+}
+
+.whiteboard-item-animation-leave.whiteboard-item-animation-leave-active {
+  width: 0px;
+  opacity: 0;
 }

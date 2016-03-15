@@ -7,19 +7,19 @@ require('styles/whiteboarding/Whiteboarditem.scss');
 
 class WhiteboarditemComponent extends React.Component {
   render() {
-    const { description, upvotes, downvotes, upvote, downvote, key } = this.props;
+    const { description, upvotes, downvotes, upvote, downvote, onDelete, id } = this.props;
     return (
       <div className="whiteboarditem-component whiteboard-card">
         { description }
         <div className="status-bar">
-          <MaterialIcon name={'trending_up'} onClick={() => upvote(key)} />
+          <MaterialIcon name={'trending_up'} onClick={() => upvote(id)} />
           { upvotes.length }
           &nbsp;|&nbsp;
-          <MaterialIcon name={'trending_down'} onClick={() => downvote(key)}/>
+          <MaterialIcon name={'trending_down'} onClick={() => downvote(id)}/>
           { downvotes.length }
         </div>
         <div className="modifiers-bar">
-          <span className="modifier">
+          <span className="modifier" onClick={() => this.handleDeleteClick(id)}>
             <MaterialIcon name={"delete"} />
           </span>
           <span className="modifier">
@@ -28,6 +28,10 @@ class WhiteboarditemComponent extends React.Component {
         </div>
       </div>
     );
+  }
+  handleDeleteClick(id) {
+    console.log(id);
+    this.props.onDelete(id);
   }
 }
 
@@ -41,7 +45,8 @@ WhiteboarditemComponent.propTypes = {
   upvote: PropTypes.func,
   downvote: PropTypes.func,
   onDelete: PropTypes.func,
-  key: PropTypes.number
+  key: PropTypes.number,
+  id: PropTypes.number.isRequired,
 };
 WhiteboarditemComponent.defaultProps = {
   upvotes: [],

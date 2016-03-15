@@ -28,6 +28,7 @@
     border-radius: 1em;
     margin: 0.3em;
     padding-top: 2px;
+    cursor: pointer;
     //border: 1px solid light-grey;
     //color: #36454f;
     //box-shadow: 1px 1px 3px grey;
@@ -35,8 +36,10 @@
     // material colours
     background-color: #00BBD3;
     color: white;
-
-
+    &:hover {
+      background-color: #0298AB;
+      transition: background-color 0.2s ease-in;
+    }
     // sketch output
     box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.12), 0px 7px 7px 0px rgba(0,0,0,0.24);
   }

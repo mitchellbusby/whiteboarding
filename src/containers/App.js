@@ -11,7 +11,7 @@ import React, {
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Main from '../components/Main';
-import { CreateWhiteboardItemComplete } from '../actions/whiteboarding/whiteboarditem';
+import { CreateWhiteboardItemComplete, DeleteWhiteboardItemComplete } from '../actions/whiteboarding/whiteboarditem';
 /* Populated by react-webpack-redux:reducer */
 class App extends Component {
   render() {
@@ -39,7 +39,7 @@ function mapStateToProps(state) {
 }
 function mapDispatchToProps(dispatch) {
   /* Populated by react-webpack-redux:action */
-  const actions = { CreateWhiteboardItemComplete: CreateWhiteboardItemComplete };
+  const actions = { CreateWhiteboardItemComplete: CreateWhiteboardItemComplete, DeleteWhiteboardItemComplete: DeleteWhiteboardItemComplete };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;
 }
