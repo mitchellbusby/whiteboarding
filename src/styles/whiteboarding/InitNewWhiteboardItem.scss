@@ -36,7 +36,7 @@
     transition: border $hover-transition-time, opacity $hover-transition-time, color $hover-transition-time, height $radius-transition-time, width $radius-transition-time, line-height 0.2s;
     cursor: pointer;
     &:hover {
-      $hover-color: #009688;
+      $hover-color: #00BBD3;
       border: 1px solid $hover-color;
       opacity: 1;
       color: $hover-color;
