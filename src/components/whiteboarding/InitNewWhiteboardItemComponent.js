@@ -13,7 +13,7 @@ class InitNewWhiteboardItemComponent extends React.Component {
     super(props);
     this.state = {
       isEditing: false,
-      description: '',
+      description: ''
     };
   }
 
@@ -64,7 +64,6 @@ class InitNewWhiteboardItemComponent extends React.Component {
       minRatio: [],
       maxRatio: []
     };
-    console.log(GenerateRandomInteger);
     this.props.onCreate(item, false);
   }
   handleChangeDescription(ev) {

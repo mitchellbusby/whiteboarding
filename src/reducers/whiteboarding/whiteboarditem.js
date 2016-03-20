@@ -17,7 +17,7 @@ const initialState = {
       dateAdded: Date(),
       minRatio: [300, 300],
       maxRatio: [300, 300],
-      voteStatus: VOTE_STATUS.NONE,
+      voteStatus: VOTE_STATUS.NONE
     }
   ]
 };
@@ -47,7 +47,7 @@ module.exports = function(state = initialState, action) {
     let nextState = Object.assign({},
       state,
       {
-        items: state.items.filter(item => item.id !== action.itemId),
+        items: state.items.filter(item => item.id !== action.itemId)
       }
     );
     return nextState;
@@ -61,7 +61,7 @@ module.exports = function(state = initialState, action) {
             return Object.assign({}, item, {
               downvotes: item.downvotes.filter(vote=>vote.id!==action.userId),
               upvotes: item.upvotes.concat({id: action.userId}),
-              voteStatus: VOTE_STATUS.UPVOTED,
+              voteStatus: VOTE_STATUS.UPVOTED
             });
           }
           return Object.assign({}, item);
@@ -79,7 +79,7 @@ module.exports = function(state = initialState, action) {
             return Object.assign({}, item, {
               downvotes: item.downvotes.concat({id: action.userId}),
               upvotes: item.upvotes.filter(vote=>vote.id!==action.userId),
-              voteStatus: VOTE_STATUS.DOWNVOTED,
+              voteStatus: VOTE_STATUS.DOWNVOTED
             });
           }
           return Object.assign({}, item);
@@ -97,13 +97,13 @@ module.exports = function(state = initialState, action) {
             return Object.assign({}, item, {
               downvotes: item.downvotes.filter(vote=>vote.id!==action.userId),
               upvotes: item.upvotes.filter(vote=>vote.id!==action.userId),
-              voteStatus: VOTE_STATUS.NONE,
+              voteStatus: VOTE_STATUS.NONE
             });
           }
           return Object.assign({}, item);
         })
       });
-    return nextState;;
+    return nextState;
   }
   default: {
     /* Return original state if no actions were consumed. */

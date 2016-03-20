@@ -44,7 +44,7 @@ function mapDispatchToProps(dispatch) {
     DeleteWhiteboardItemComplete: DeleteWhiteboardItemComplete,
     UpvoteWhiteboardItemComplete: UpvoteWhiteboardItemComplete,
     DownvoteWhiteboardItemComplete: DownvoteWhiteboardItemComplete,
-    DevoteWhiteboardItemComplete: DevoteWhiteboardItemComplete,
+    DevoteWhiteboardItemComplete: DevoteWhiteboardItemComplete
   };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;
