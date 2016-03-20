@@ -1,4 +1,7 @@
 .whiteboarditem-component {
+
+  $accent-color: #00BBD3;
+
   $whiteboard-absolute-padding: 0.5em;
   .status-bar {
     $status-bar-height: 1;
@@ -7,6 +10,20 @@
     height: $status-bar-height;
     line-height: $status-bar-height;
     bottom: $whiteboard-absolute-padding;
+    .status-item {
+      cursor: pointer;
+    }
+
+    &.downvoted {
+      .status-item.downvote {
+        color: $accent-color;
+      }
+    }
+    &.upvoted {
+      .status-item.upvote {
+        color: $accent-color;
+      }
+    }
   }
   .modifiers-bar {
     position: absolute;
@@ -34,7 +51,7 @@
     //box-shadow: 1px 1px 3px grey;
     //background-color: #EFEFEF;
     // material colours
-    background-color: #00BBD3;
+    background-color: $accent-color;
     color: white;
     &:hover {
       background-color: #0298AB;

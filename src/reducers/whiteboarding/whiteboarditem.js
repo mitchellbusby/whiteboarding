@@ -1,4 +1,6 @@
-import { CREATE_WHITEBOARD_ITEM_COMPLETE, DELETE_WHITEBOARD_ITEM_COMPLETE } from '../../action-types/whiteboarding/constants';
+import { CREATE_WHITEBOARD_ITEM_COMPLETE, DELETE_WHITEBOARD_ITEM_COMPLETE, UPVOTE_WHITEBOARD_ITEM_COMPLETE, DOWNVOTE_WHITEBOARD_ITEM_COMPLETE, DEVOTE_WHITEBOARD_ITEM_COMPLETE } from '../../action-types/whiteboarding/constants';
+
+import { VOTE_STATUS } from '../../well_known_constants/enums';
 
 /* Define your initial state here.
  *
@@ -14,7 +16,8 @@ const initialState = {
       downvotes: [{id:1}],
       dateAdded: Date(),
       minRatio: [300, 300],
-      maxRatio: [300, 300]
+      maxRatio: [300, 300],
+      voteStatus: VOTE_STATUS.NONE,
     }
   ]
 };
@@ -48,6 +51,59 @@ module.exports = function(state = initialState, action) {
       }
     );
     return nextState;
+  }
+  case UPVOTE_WHITEBOARD_ITEM_COMPLETE: {
+    let nextState = Object.assign({},
+      state,
+      {
+        items: state.items.map((item) => {
+          if (item.id === action.itemId) {
+            return Object.assign({}, item, {
+              downvotes: item.downvotes.filter(vote=>vote.id!==action.userId),
+              upvotes: item.upvotes.concat({id: action.userId}),
+              voteStatus: VOTE_STATUS.UPVOTED,
+            });
+          }
+          return Object.assign({}, item);
+        })
+      }
+    );
+    return nextState;
+  }
+  case DOWNVOTE_WHITEBOARD_ITEM_COMPLETE: {
+    let nextState = Object.assign({},
+      state,
+      {
+        items: state.items.map((item)=> {
+          if (item.id===action.itemId) {
+            return Object.assign({}, item, {
+              downvotes: item.downvotes.concat({id: action.userId}),
+              upvotes: item.upvotes.filter(vote=>vote.id!==action.userId),
+              voteStatus: VOTE_STATUS.DOWNVOTED,
+            });
+          }
+          return Object.assign({}, item);
+        })
+      }
+    );
+    return nextState;
+  }
+  case DEVOTE_WHITEBOARD_ITEM_COMPLETE: {
+    let nextState = Object.assign({},
+      state,
+      {
+        items: state.items.map((item)=> {
+          if (item.id===action.itemId) {
+            return Object.assign({}, item, {
+              downvotes: item.downvotes.filter(vote=>vote.id!==action.userId),
+              upvotes: item.upvotes.filter(vote=>vote.id!==action.userId),
+              voteStatus: VOTE_STATUS.NONE,
+            });
+          }
+          return Object.assign({}, item);
+        })
+      });
+    return nextState;;
   }
   default: {
     /* Return original state if no actions were consumed. */

@@ -18,8 +18,11 @@ class AppComponent extends React.Component {
           {
             WhiteboardItems.items.map(WhiteboardItem =>
               <WhiteboarditemComponent key={WhiteboardItem.id} id={WhiteboardItem.id} description={ WhiteboardItem.description }
-              upvotes={WhiteboardItem.upvotes} downvotes={WhiteboardItem.downvotes}
-              onDelete={ Actions.DeleteWhiteboardItemComplete } />
+              upvotes={WhiteboardItem.upvotes} downvotes={WhiteboardItem.downvotes} voteStatus={WhiteboardItem.voteStatus}
+              onDelete={ Actions.DeleteWhiteboardItemComplete }
+              onUpvote={ Actions.UpvoteWhiteboardItemComplete }
+              onDownvote={ Actions.DownvoteWhiteboardItemComplete }
+              onDevote={ Actions.DevoteWhiteboardItemComplete } />
             )
           }
         </ReactCSSTransitionGroup>
