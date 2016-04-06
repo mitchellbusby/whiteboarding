@@ -1,4 +1,5 @@
-import { CREATE_WHITEBOARD_ITEM_COMPLETE, DELETE_WHITEBOARD_ITEM_COMPLETE, UPVOTE_WHITEBOARD_ITEM_COMPLETE, DOWNVOTE_WHITEBOARD_ITEM_COMPLETE, DEVOTE_WHITEBOARD_ITEM_COMPLETE } from '../../action-types/whiteboarding/constants';
+import { CREATE_WHITEBOARD_ITEM_COMPLETE, DELETE_WHITEBOARD_ITEM_COMPLETE, DELETE_WHITEBOARD_ITEM_ATTEMPT,
+  UPVOTE_WHITEBOARD_ITEM_COMPLETE, DOWNVOTE_WHITEBOARD_ITEM_COMPLETE, DEVOTE_WHITEBOARD_ITEM_COMPLETE } from '../../action-types/whiteboarding/constants';
 
 import { VOTE_STATUS } from '../../well_known_constants/enums';
 
@@ -17,7 +18,8 @@ const initialState = {
       dateAdded: Date(),
       minRatio: [300, 300],
       maxRatio: [300, 300],
-      voteStatus: VOTE_STATUS.NONE
+      voteStatus: VOTE_STATUS.NONE,
+      attemptingToDelete: false
     }
   ]
 };
@@ -41,6 +43,16 @@ module.exports = function(state = initialState, action) {
         addingAnItem: false
       }
     );
+    return nextState;
+  }
+  case DELETE_WHITEBOARD_ITEM_ATTEMPT: {
+    let nextState = Object.assign({},
+      state,
+      {
+        items: state.items.map(item => {
+          Object.assign({}, item, item.id === action.itemId ? {attemptingToDelete: true} : {});
+        })
+      });
     return nextState;
   }
   case DELETE_WHITEBOARD_ITEM_COMPLETE: {
