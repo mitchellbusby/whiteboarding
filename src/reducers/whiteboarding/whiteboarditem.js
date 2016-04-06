@@ -50,7 +50,7 @@ module.exports = function(state = initialState, action) {
       state,
       {
         items: state.items.map(item => {
-          Object.assign({}, item, item.id === action.itemId ? {attemptingToDelete: true} : {});
+          return Object.assign({}, item, item.id === action.itemId ? {attemptingToDelete: true} : {});
         })
       });
     return nextState;

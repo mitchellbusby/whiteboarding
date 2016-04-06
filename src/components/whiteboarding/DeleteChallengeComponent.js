@@ -6,9 +6,26 @@ require('styles/whiteboarding/DeleteChallenge.scss');
 
 class DeleteChallengeComponent extends React.Component {
   render() {
+
+    var challengeButtons = [];
+
+    for (var i=0; i < 9; i++) {
+      challengeButtons.push(
+        <div className="button">
+          { i }
+        </div>
+      );
+    }
+
     return (
       <div className="deletechallenge-component">
-        Please edit src/components/whiteboarding//DeleteChallengeComponent.js to update this component!
+        <div className="inner">
+          <div className="buttons">
+            {
+              challengeButtons
+            }
+          </div>
+        </div>
       </div>
     );
   }
@@ -17,7 +34,9 @@ class DeleteChallengeComponent extends React.Component {
 DeleteChallengeComponent.displayName = 'WhiteboardingDeleteChallengeComponent';
 
 // Uncomment properties you need
-// DeleteChallengeComponent.propTypes = {};
+DeleteChallengeComponent.propTypes = {
+
+};
 // DeleteChallengeComponent.defaultProps = {};
 
 export default DeleteChallengeComponent;

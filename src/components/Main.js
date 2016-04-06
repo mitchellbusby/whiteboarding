@@ -19,7 +19,8 @@ class AppComponent extends React.Component {
             WhiteboardItems.items.map(WhiteboardItem =>
               <WhiteboarditemComponent key={WhiteboardItem.id} id={WhiteboardItem.id} description={ WhiteboardItem.description }
               upvotes={WhiteboardItem.upvotes} downvotes={WhiteboardItem.downvotes} voteStatus={WhiteboardItem.voteStatus}
-              onDelete={ Actions.DeleteWhiteboardItemComplete }
+              attemptingToDelete={WhiteboardItem.attemptingToDelete}
+              onDelete={ Actions.AttemptDeleteWhiteboardItem }
               onUpvote={ Actions.UpvoteWhiteboardItemComplete }
               onDownvote={ Actions.DownvoteWhiteboardItemComplete }
               onDevote={ Actions.DevoteWhiteboardItemComplete } />

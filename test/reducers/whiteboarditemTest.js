@@ -1,6 +1,6 @@
 var reducer = require('../../src/reducers/whiteboarding/whiteboarditem');
 
-import { CREATE_WHITEBOARD_ITEM_COMPLETE, DELETE_WHITEBOARD_ITEM_COMPLETE } from '../../src/action-types/whiteboarding/constants';
+import { CREATE_WHITEBOARD_ITEM_COMPLETE, DELETE_WHITEBOARD_ITEM_COMPLETE, DELETE_WHITEBOARD_ITEM_ATTEMPT } from '../../src/action-types/whiteboarding/constants';
 
 describe('whiteboarditem', () => {
 
@@ -58,6 +58,23 @@ describe('whiteboarditem', () => {
     let result = reducer(initialState, action);
 
     expect(result.items.length).to.equal(1);
+
+  });
+
+  it('should begin attempt to delete, on an item that has a matching id', () => {
+    const itemIdToDelete = 0;
+
+    const initialState = {
+      items: [{
+        id: itemIdToDelete
+      }]
+    };
+
+    const action = { type: DELETE_WHITEBOARD_ITEM_ATTEMPT, itemId: itemIdToDelete };
+
+    let result = reducer(initialState, action);
+    console.log(result);
+    expect(result.items[0].attemptingToDelete).to.be.true;
 
   });
 });

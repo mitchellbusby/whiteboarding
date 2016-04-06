@@ -10,13 +10,13 @@ require('styles/whiteboarding/Whiteboarditem.scss');
 
 class WhiteboarditemComponent extends React.Component {
   render() {
-    const { description, upvotes, downvotes, id, voteStatus } = this.props;
+    const { description, upvotes, downvotes, id, voteStatus, attemptingToDelete } = this.props;
 
     // voteStatus should probably be calculated at a later date instead of having this messy data duplication
     let voteStatusClass = VOTE_STATUS_CLASSES[voteStatus];
 
     return (
-      <div className="whiteboarditem-component whiteboard-card">
+      <div className={classNames("whiteboarditem-component whiteboard-card", {'attemptingDelete': attemptingToDelete})}>
         { description }
         <div className={classNames(voteStatusClass, 'status-bar')}>
           <span className={'status-item upvote'} onClick={() => this.handleUpvoteClick(id)}>
@@ -76,7 +76,8 @@ WhiteboarditemComponent.propTypes = {
   onDevote: PropTypes.func,
   key: PropTypes.number,
   id: PropTypes.number.isRequired,
-  voteStatus: PropTypes.number.isRequired
+  voteStatus: PropTypes.number.isRequired,
+  attemptingToDelete: PropTypes.bool.isRequired,
 };
 WhiteboarditemComponent.defaultProps = {
   upvotes: [],
