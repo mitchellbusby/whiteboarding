@@ -10,6 +10,7 @@ import { combineReducers } from 'redux';
 /* Populated by react-webpack-redux:reducer */
 const reducers = {
   whiteboarditem: require('../reducers/whiteboarding/whiteboarditem.js'),
-  items: require('../reducers/items.js')
+  items: require('../reducers/items.js'),
+  whiteboardchallenge: require('../reducers/whiteboarding/whiteboardchallenge.js')
 };
 module.exports = combineReducers(reducers);

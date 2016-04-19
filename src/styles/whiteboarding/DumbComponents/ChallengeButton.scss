@@ -1,0 +1,29 @@
+.challengebutton {
+    $button-radius: 3em;
+    $button-margin: 0.3em;
+    width: $button-radius;
+    height: $button-radius;
+    border-radius: $button-radius;
+    line-height: $button-radius;
+
+    margin: $button-margin;
+
+    background-color: white;
+    border: 1px solid silver;
+    color: grey;
+
+    text-align: center;
+    display: inline-block;
+
+    cursor: pointer;
+    &:hover {
+      background-color: #e8e8e8;
+      transition: background-color 0.5s;
+  }
+  &.clicked {
+    background-color: red;
+    &.willTrigger {
+      background-color: #f0fff0;
+    }
+  }
+}

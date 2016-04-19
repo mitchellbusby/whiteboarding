@@ -11,12 +11,25 @@ import React, {
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Main from '../components/Main';
-import { CreateWhiteboardItemComplete, DeleteWhiteboardItemComplete, UpvoteWhiteboardItemComplete, DownvoteWhiteboardItemComplete, DevoteWhiteboardItemComplete, AttemptDeleteWhiteboardItem } from '../actions/whiteboarding/whiteboarditem';
+import {
+  CreateWhiteboardItemComplete,
+  DeleteWhiteboardItemComplete,
+  UpvoteWhiteboardItemComplete,
+  DownvoteWhiteboardItemComplete,
+  DevoteWhiteboardItemComplete,
+  AttemptDeleteWhiteboardItem
+} from '../actions/whiteboarding/whiteboarditem';
 /* Populated by react-webpack-redux:reducer */
 class App extends Component {
   render() {
-    const {actions, whiteboarditem, items} = this.props;
-    return <Main Actions={actions} WhiteboardItems={whiteboarditem} items={items}/>;
+    const {actions, whiteboarditem, items, whiteboardchallenge} = this.props;
+    return (
+      <Main
+        Actions={actions}
+        WhiteboardItems={whiteboarditem}
+        items={items}
+        WhiteboardChallenge={whiteboardchallenge}/>
+    );
   }
 }
 /* Populated by react-webpack-redux:reducer
@@ -27,13 +40,15 @@ class App extends Component {
 App.propTypes = {
   actions: PropTypes.object.isRequired,
   whiteboarditem: PropTypes.object.isRequired,
-  items: PropTypes.object.isRequired
+  items: PropTypes.object.isRequired,
+  whiteboardchallenge: PropTypes.object.isRequired
 };
 function mapStateToProps(state) {
   /* Populated by react-webpack-redux:reducer */
   const props = {
     whiteboarditem: state.whiteboarditem,
-    items: state.items
+    items: state.items,
+    whiteboardchallenge: state.whiteboardchallenge
   };
   return props;
 }
@@ -45,7 +60,7 @@ function mapDispatchToProps(dispatch) {
     UpvoteWhiteboardItemComplete: UpvoteWhiteboardItemComplete,
     DownvoteWhiteboardItemComplete: DownvoteWhiteboardItemComplete,
     DevoteWhiteboardItemComplete: DevoteWhiteboardItemComplete,
-    AttemptDeleteWhiteboardItem: AttemptDeleteWhiteboardItem,
+    AttemptDeleteWhiteboardItem: AttemptDeleteWhiteboardItem
   };
   const actionMap = { actions: bindActionCreators(actions, dispatch) };
   return actionMap;

@@ -17,6 +17,6 @@ describe('DeleteChallengeComponent', () => {
   });
 
   it('should have its component name as default className', () => {
-    expect(component.props.className).to.equal('deletechallenge-component');
+    expect(component.props.className).to.contain('deletechallenge-component');
   });
 });
