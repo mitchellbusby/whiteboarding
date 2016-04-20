@@ -19,7 +19,8 @@ class AppComponent extends React.Component {
           {
             WhiteboardItems.items.map(WhiteboardItem =>
               WhiteboardItem.attemptingToDelete ?
-              <DeleteChallengeComponent key={WhiteboardItem.id} id={WhiteboardItem.id} />
+              <DeleteChallengeComponent key={WhiteboardItem.id} id={WhiteboardItem.id}
+                onDelete={ Actions.DeleteWhiteboardItemComplete } />
 
               :
 

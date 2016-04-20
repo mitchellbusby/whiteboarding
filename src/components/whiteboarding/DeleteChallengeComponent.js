@@ -1,6 +1,6 @@
 'use strict';
 
-import React from 'react';
+import React, { PropTypes } from 'react';
 import classNames from 'classnames';
 
 import ChallengeButtonComponent from './DumbComponents/ChallengeButtonComponent';
@@ -70,7 +70,8 @@ class DeleteChallengeComponent extends React.Component {
   }
 
   handleDeleteClick() {
-    this.props.onDelete();
+    let { onDelete, id } = this.props;
+    onDelete(id);
   }
 }
 
@@ -78,7 +79,8 @@ DeleteChallengeComponent.displayName = 'WhiteboardingDeleteChallengeComponent';
 
 // Uncomment properties you need
 DeleteChallengeComponent.propTypes = {
-  onDelete: PropTypes.func.isRequired
+  onDelete: PropTypes.func.isRequired,
+  id: PropTypes.number.isRequired
 };
 // DeleteChallengeComponent.defaultProps = {};
 
