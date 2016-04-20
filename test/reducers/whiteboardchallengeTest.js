@@ -21,8 +21,6 @@ describe('whiteboardchallenge', () => {
 
     let result = reducer(initialState, AttemptDeleteWhiteboardItem(idToBe));
 
-    console.log(result)
-
     expect(result.challengeIsInProgress).to.be.true;
     expect(result.currentItemId).to.not.be.null;
     expect(result.currentItemId).to.equal(idToBe);

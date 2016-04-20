@@ -73,7 +73,6 @@ describe('whiteboarditem', () => {
     const action = { type: DELETE_WHITEBOARD_ITEM_ATTEMPT, itemId: itemIdToDelete };
 
     let result = reducer(initialState, action);
-    console.log(result);
     expect(result.items[0].attemptingToDelete).to.be.true;
 
   });
