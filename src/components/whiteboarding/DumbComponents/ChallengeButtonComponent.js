@@ -10,7 +10,7 @@ class ChallengeButtonComponent extends React.Component {
 
     const { hasBeenClicked, assignedNumber, willTrigger } = this.props;
     return (
-        <div className={classNames("challengebutton", {'clicked': hasBeenClicked, 'willTrigger': willTrigger})}
+        <div className={classNames('challengebutton-component', {'clicked': hasBeenClicked, 'willTrigger': willTrigger})}
           onClick={() => this.handleClick()}>
           { assignedNumber }
         </div>
