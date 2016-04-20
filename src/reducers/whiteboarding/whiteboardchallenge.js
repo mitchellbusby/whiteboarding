@@ -9,7 +9,7 @@ import { DELETE_WHITEBOARD_ITEM_ATTEMPT, DELETE_WHITEBOARD_ITEM_COMPLETE } from 
 const initialState = {
   currentItemId: null,
   challengeIsInProgress: false,
-  challengeIsCompleted: false,
+  challengeIsCompleted: false
 };
 
 module.exports = function(state = initialState, action) {

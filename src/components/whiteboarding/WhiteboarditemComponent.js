@@ -16,7 +16,7 @@ class WhiteboarditemComponent extends React.Component {
     let voteStatusClass = VOTE_STATUS_CLASSES[voteStatus];
 
     return (
-      <div className={classNames("whiteboarditem-component whiteboard-card", {'attemptingDelete': attemptingToDelete})}>
+      <div className={classNames('whiteboarditem-component whiteboard-card', {'attemptingDelete': attemptingToDelete})}>
         { description }
         <div className={classNames(voteStatusClass, 'status-bar')}>
           <span className={'status-item upvote'} onClick={() => this.handleUpvoteClick(id)}>
@@ -83,7 +83,7 @@ WhiteboarditemComponent.propTypes = {
   id: PropTypes.number.isRequired,
   voteStatus: PropTypes.number.isRequired,
   attemptingToDelete: PropTypes.bool.isRequired,
-  isDeleteable: PropTypes.bool,
+  isDeleteable: PropTypes.bool
 };
 WhiteboarditemComponent.defaultProps = {
   upvotes: [],

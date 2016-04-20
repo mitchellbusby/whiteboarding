@@ -1,7 +1,6 @@
 'use strict';
 
 import React, { PropTypes } from 'react';
-import classNames from 'classnames';
 
 import ChallengeButtonComponent from './DumbComponents/ChallengeButtonComponent';
 
@@ -50,7 +49,6 @@ class DeleteChallengeComponent extends React.Component {
   handleNumberClick(number) {
 
     let { numberSequence } = this.state;
-    let { onChallengeComplete } = this.props;
 
     let numberToBeCompleted = numberSequence.filter(this.isACorrectNumber).length;
 
