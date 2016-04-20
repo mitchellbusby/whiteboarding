@@ -1,9 +1,10 @@
+$delete-challenge-button-radius: 3em;
+$delete-challenge-button-margin: 0.3em;
 .deletechallenge-component {
-  $button-radius: 3em;
-  $button-margin: 0.3em;
+
   $num-buttons-per-line: 3;
   .button-container {
-    width: ($button-radius + $button-margin) * 4;
+    width: ($delete-challenge-button-radius + $delete-challenge-button-margin) * 4;
     margin: 0 auto;
   }
   .hint {

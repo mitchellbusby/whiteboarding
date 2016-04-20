@@ -1,12 +1,13 @@
-.challengebutton {
-    $button-radius: 3em;
-    $button-margin: 0.3em;
-    width: $button-radius;
-    height: $button-radius;
-    border-radius: $button-radius;
-    line-height: $button-radius;
+@import "../DeleteChallenge";
 
-    margin: $button-margin;
+.challengebutton {
+
+    width: $delete-challenge-button-radius;
+    height: $delete-challenge-button-radius;
+    border-radius: $delete-challenge-button-radius;
+    line-height: $delete-challenge-button-radius;
+
+    margin: $delete-challenge-button-margin;
 
     background-color: white;
     border: 1px solid silver;

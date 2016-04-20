@@ -9,10 +9,6 @@ import { ShuffleArray } from '../../utils/arrays';
 
 require('styles/whiteboarding/DeleteChallenge.scss');
 
-/*class ChallengeButton extends React.Component {
-
-}*/
-
 class DeleteChallengeComponent extends React.Component {
   constructor(props) {
     super(props);
@@ -41,7 +37,7 @@ class DeleteChallengeComponent extends React.Component {
         <div className="hint">
         {
           this.state.challengeCompleted ?
-          <button type="button" className={"pure-button"}>Delete</button> :
+          <button type="button" className={"pure-button"} onClick={() => this.handleDeleteClick()}>Delete</button> :
           <p>Only click the even numbers</p>
         }
         </div>
@@ -52,26 +48,29 @@ class DeleteChallengeComponent extends React.Component {
     return number % 2 == 0;
   }
   handleNumberClick(number) {
+
     let { numberSequence } = this.state;
+    let { onChallengeComplete } = this.props;
 
     let numberToBeCompleted = numberSequence.filter(this.isACorrectNumber).length;
-
-    console.log('Number to be completed is: '+numberToBeCompleted);
 
     // Check if this is a valid number
     if (this.isACorrectNumber(number)) {
 
       // Check if this number hasn't already been clicked
       if (this.state.completedNumbers.indexOf(number) === -1) {
-        this.setState({completedNumbers: this.state.completedNumbers.concat(number)});
-      }
-      // Check if the challenge is actually completed
-      console.log('Current set numbers is: ' + this.state.completedNumbers.length);
-      console.log(this.state.completedNumbers);
-      if (this.state.completedNumbers.length >= numberToBeCompleted) {
-        this.setState({ challengeCompleted: true });
+        this.setState({completedNumbers: this.state.completedNumbers.concat(number)}, () => {
+          // Callback to update challenge complete!
+          if (this.state.completedNumbers.length >= numberToBeCompleted) {
+            this.setState({ challengeCompleted: true });
+          }
+        });
       }
     }
+  }
+
+  handleDeleteClick() {
+    this.props.onDelete();
   }
 }
 
@@ -79,7 +78,7 @@ DeleteChallengeComponent.displayName = 'WhiteboardingDeleteChallengeComponent';
 
 // Uncomment properties you need
 DeleteChallengeComponent.propTypes = {
-
+  onDelete: PropTypes.func.isRequired
 };
 // DeleteChallengeComponent.defaultProps = {};
 
