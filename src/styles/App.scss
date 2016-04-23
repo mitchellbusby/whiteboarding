@@ -1,7 +1,7 @@
 @import "whiteboarding/WhiteboardCard";
 @import "whiteboarding/Button";
 @import "whiteboarding/TextArea";
-
+@import "whiteboarding/functions";
 
 $whiteboard-item-width: 400px;
 
@@ -11,11 +11,7 @@ $whiteboard-item-width: 400px;
 
 .whiteboard-item-animation-enter.whiteboard-item-animation-enter-active {
   width: $whiteboard-item-width !important;
-  -webkit-transition: width 500ms ease-in;
-  -moz-transition: width 500ms ease-in;
-  -ms-transition: width 500ms ease-in;
-  -o-transition: width 500ms ease-in;
-  transition: width 500ms ease-in;
+  @include transition(width 500ms ease-in);
 }
 
 .whiteboard-item-animation-leave {
@@ -23,11 +19,7 @@ $whiteboard-item-width: 400px;
   margin: 0;
   border: 0;
   box-shadow: 0;
-  -webkit-transition: width 500ms ease-in;
-  -moz-transition: width 500ms ease-in;
-  -ms-transition: width 500ms ease-in;
-  -o-transition: width 500ms ease-in;
-  transition: width 500ms ease-in;
+  @include transition(width 500ms ease-in);
   * {
     display: none;
   }

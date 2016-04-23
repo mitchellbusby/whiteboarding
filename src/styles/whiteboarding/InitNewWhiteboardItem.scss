@@ -1,5 +1,6 @@
 @import '../shared/placeholder-polyfill';
 @import './FlipCard';
+@import 'base-variables';
 .initnewwhiteboarditem-component {
   .creation-form {
     display: none;
@@ -33,10 +34,10 @@
     opacity: 0.7;
     $hover-transition-time: 0.7s;
     $radius-transition-time: 0.3s;
-    transition: border $hover-transition-time, opacity $hover-transition-time, color $hover-transition-time, height $radius-transition-time, width $radius-transition-time, line-height 0.2s;
+    transition: border $hover-transition-time, opacity $hover-transition-time, color $hover-transition-time;
     cursor: pointer;
     &:hover {
-      $hover-color: #00BBD3;
+      $hover-color: $accent-color;
       border: 1px solid $hover-color;
       opacity: 1;
       color: $hover-color;

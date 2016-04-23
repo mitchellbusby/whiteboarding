@@ -1,9 +1,7 @@
 @import "functions";
+@import "base-variables";
 
 .whiteboarditem-component {
-
-  $accent-color: #00BBD3;
-
   $whiteboard-absolute-padding: 0.5em;
   .status-bar {
     $status-bar-height: 1;
@@ -48,16 +46,11 @@
     margin: 0.3em;
     padding-top: 2px;
     cursor: pointer;
-    //border: 1px solid light-grey;
-    //color: #36454f;
-    //box-shadow: 1px 1px 3px grey;
-    //background-color: #EFEFEF;
-    // material colours
     background-color: $accent-color;
     color: white;
     &:hover {
-      background-color: #0298AB;
-      transition: background-color 0.2s ease-in;
+      background-color: scale-color($accent-color, $lightness: -20%);
+      @include transition(background-color 0.2s ease-in);
     }
     // sketch output
     box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.12), 0px 7px 7px 0px rgba(0,0,0,0.24);

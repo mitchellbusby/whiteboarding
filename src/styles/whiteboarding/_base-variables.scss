@@ -3,14 +3,22 @@
 
 // Colors
 $smooth-grey: #7b7b7b;
+$aqua: #00BBD3;
+$indigo: #3F51B5;
+
 
 // Fonts
 $main-serif: "Playfair Display";
-
+$main-sans-serif: "Helvetica";
 
 // Generalised
 $main-text-color: black;
-$main-text-font: $main-serif;
+$main-text-font: $main-sans-serif;
+
+$heading-text-font: $main-serif;
+
+$accent-color: $indigo;
+
 $idle-text-color: $smooth-grey;
 
 
