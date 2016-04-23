@@ -65,6 +65,7 @@ class InitNewWhiteboardItemComponent extends React.Component {
       maxRatio: []
     };
     this.props.onCreate(item, false);
+    this.setState({description: '', isEditing: false});
   }
   handleChangeDescription(ev) {
     this.setState({description: ev.target.value});

@@ -4,8 +4,12 @@ $delete-challenge-button-margin: 0.3em;
 
   $num-buttons-per-line: 3;
   .button-container {
-    width: ($delete-challenge-button-radius + $delete-challenge-button-margin) * 4;
+    width: ($delete-challenge-button-radius + ($delete-challenge-button-margin * 3)) * 3;
     margin: 0 auto;
+  }
+  .delete-button {
+    text-align: center;
+    margin-top: 2em;
   }
   .hint {
     text-align: center;

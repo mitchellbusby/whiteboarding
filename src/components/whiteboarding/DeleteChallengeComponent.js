@@ -36,7 +36,7 @@ class DeleteChallengeComponent extends React.Component {
         <div className="hint">
         {
           this.state.challengeCompleted ?
-          <button type="button" className={"pure-button"} onClick={() => this.handleDeleteClick()}>Delete</button> :
+          <button type="button" className={"pure-button delete-button button-secondary button-error"} onClick={() => this.handleDeleteClick()}>Delete</button> :
           <p>Only click the even numbers</p>
         }
         </div>
